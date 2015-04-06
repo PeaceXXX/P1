@@ -21,9 +21,8 @@ def dijkstras_shortest_path(src, dst, graph, adj):
   			if next_node[1] not in prev or node[0] < dist[next_node[1]]:
 	  			dist[next_node[1]] = node[0]        
 	  			prev[next_node[1]] = node[1]
-	  			heappush(queue,next_node)
+	  			heappush(queue,(next_node))
  	if node[1] == dst:
-
 		path = []
 		node = node[1]
 
@@ -44,7 +43,6 @@ def navigation_edges(level, cell):
 			next_cell = (x + dx, y + dy)
 			dist = sqrt(dx*dx+dy*dy)
 			if dist > 0 and next_cell in level['spaces']:
-
 				steps.append((cell[0] + dist, next_cell))
 	return steps
 
